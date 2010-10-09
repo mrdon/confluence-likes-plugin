@@ -80,7 +80,7 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-confluence-plugin</artifactId>
-                <version>3.3-SNAPSHOT</version>
+                <version>3.3-m1</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${confluence.version}</productVersion>
