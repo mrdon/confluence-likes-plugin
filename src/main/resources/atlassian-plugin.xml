@@ -12,16 +12,16 @@
     <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" />
     <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager" />
 
-    <scoped-web-resource key="likes">
+    <web-resource key="likes">
         <resource type="download" name="likes.js" location="likes.js" />
         <context>page</context>
         <context>blogpost</context>
-    </scoped-web-resource>
+    </web-resource>
 
-    <scoped-web-item key="like-comment" section="system.comment.action/primary" weight="50">
+    <web-item key="like-comment" section="system.comment.action/primary" weight="50">
         <label key="Like">Like</label>
         <link linkId="like-comment">/rest/likes/1/comment/${comment.id}.json?page=$helper.page.id</link>
         <styleClass>like-comment</styleClass>
-    </scoped-web-item>
+    </web-item>
 
 </atlassian-plugin>

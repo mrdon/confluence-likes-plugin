@@ -8,7 +8,8 @@ import com.atlassian.webdriver.confluence.page.DashboardPage;
 import com.atlassian.webdriver.product.TestedProductFactory;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import webdriver.browsers.WebdriverBrowserAutoInstall;
+import webdriver.browsers.WebDriverBrowserAutoInstall;
+import webdriver.browsers.WebDriverBrowserAutoInstall;
 
 import static org.junit.Assert.assertTrue;
 
@@ -29,7 +30,7 @@ public class TestDashboard
     @Test
     public void testLogin()
     {
-        ConfluenceTestedProduct conf = TestedProductFactory.create(ConfluenceTestedProduct.class, WebdriverBrowserAutoInstall.getDriver());
+        ConfluenceTestedProduct conf = TestedProductFactory.create(ConfluenceTestedProduct.class, WebDriverBrowserAutoInstall.getDriver());
         DashboardPage dashboard = conf.gotoLoginPage()
                 .loginAsAdmin();
         assertTrue(dashboard.isLoggedIn());
