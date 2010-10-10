@@ -44,7 +44,14 @@ public class DemoPage extends ConfluenceAbstractPage<DemoPage>
 
     public int getCommentLikes(int commentId)
     {
-        WebElement e = getDriver().findElement(ByJquery.$("div#comment-" + commentId+" .date"));
+        final WebElement e = getDriver().findElement(ByJquery.$("div#comment-" + commentId+" .date"));
+        wait.until(new ExpectedCondition<Boolean>()
+        {
+            public Boolean apply(WebDriver o)
+            {
+                return e.getText().contains(" likes");
+            }
+        });
         String likes = e.getText().replaceFirst(".*- ([0-9]+) likes", "$1");
         return Integer.parseInt(likes);
     }
