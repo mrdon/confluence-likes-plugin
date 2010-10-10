@@ -24,8 +24,4 @@
         <styleClass>like-comment</styleClass>
     </scoped-web-item>
 
-    <listener name="Content Edit Listener" class="com.atlassian.labs.likes.LikeBasedCommentNotificationListener" key="comment-listener">
-    <description>Listens to modifications in Confluence's pages and triggers notifications.</description>
-  </listener>
-
 </atlassian-plugin>
