@@ -30,16 +30,18 @@ public class LikesResource
 
     @GET
     @Path("/page/{id}")
-    public Response getForPage(@PathParam("id") long pageId)
+    public Response getForPage(@PathParam("id") long pageId, @Context HttpServletRequest req)
     {
-        return Response.ok(likesManager.getLikesForPage(pageId)).build();
+        String user = userManager.getRemoteUsername(req);
+        return Response.ok(likesManager.getLikesForPage(pageId, user)).build();
     }
 
     @GET
     @Path("/comment/{id}")
-    public Response getForComment(@PathParam("id") long commentId)
+    public Response getForComment(@PathParam("id") long commentId, @Context HttpServletRequest req)
     {
-        return Response.ok(likesManager.getLikesForComment(commentId)).build();
+        String user = userManager.getRemoteUsername(req);
+        return Response.ok(likesManager.getLikesForComment(commentId, user)).build();
     }
 
     @POST

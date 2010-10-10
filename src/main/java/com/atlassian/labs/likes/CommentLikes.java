@@ -13,8 +13,12 @@ public class CommentLikes
     @XmlElement
     private List<String> users;
 
-    public CommentLikes(List<String> users)
+    @XmlElement
+    private boolean liked;
+
+    public CommentLikes(List<String> users, boolean liked)
     {
+        this.liked = liked;
         this.users = users;
     }
 
@@ -31,5 +35,15 @@ public class CommentLikes
     public void setUsers(List<String> users)
     {
         this.users = users;
+    }
+
+    public boolean isLiked()
+    {
+        return liked;
+    }
+
+    public void setLiked(boolean liked)
+    {
+        this.liked = liked;
     }
 }

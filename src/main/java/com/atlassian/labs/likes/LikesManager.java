@@ -59,20 +59,20 @@ public class LikesManager
         return "likes-" + commentId;
     }
 
-    public PageLikes getLikesForPage(long pageId)
+    public PageLikes getLikesForPage(long pageId, String user)
     {
         Map<Long,CommentLikes> likes = new HashMap<Long, CommentLikes>();
         Page page = pageManager.getPage(pageId);
         for (Comment comment : page.getComments())
         {
-            likes.put(comment.getId(), getLikesForComment(comment.getId()));
+            likes.put(comment.getId(), getLikesForComment(comment.getId(), user));
         }
         return new PageLikes(likes);
     }
 
-    public CommentLikes getLikesForComment(long commentId)
+    public CommentLikes getLikesForComment(long commentId, String user)
     {
         List<String> likes = getLikesInternal(commentId);
-        return new CommentLikes(likes);
+        return new CommentLikes(likes, likes.contains(user));
     }
 }

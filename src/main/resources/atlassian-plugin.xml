@@ -18,11 +18,14 @@
         <context>blogpost</context>
     </scoped-web-resource>
 
-    <scoped-web-item key="like-comment" name="Like Comment" section="system.comment.action/primary" weight="50">
+    <scoped-web-item key="like-comment" section="system.comment.action/primary" weight="50">
         <label key="Like">Like</label>
-        <link linkId="like-comment">/rest/likes/comment/$comment.id.json?page=$helper.page.id</link>
+        <link linkId="like-comment">/rest/likes/1/comment/${comment.id}.json?page=$helper.page.id</link>
         <styleClass>like-comment</styleClass>
     </scoped-web-item>
 
+    <listener name="Content Edit Listener" class="com.atlassian.labs.likes.LikeBasedCommentNotificationListener" key="comment-listener">
+    <description>Listens to modifications in Confluence's pages and triggers notifications.</description>
+  </listener>
 
 </atlassian-plugin>
