@@ -30,7 +30,9 @@ public class TestDashboard
     @Test
     public void testLogin()
     {
-        ConfluenceTestedProduct conf = TestedProductFactory.create(ConfluenceTestedProduct.class, WebDriverBrowserAutoInstall.getDriver());
+        ConfluenceTestedProduct conf = TestedProductFactory.create(ConfluenceTestedProduct.class,
+                WebDriverBrowserAutoInstall.getDriver());
+        
         DashboardPage dashboard = conf.gotoLoginPage()
                 .loginAsAdmin();
         assertTrue(dashboard.isLoggedIn());
